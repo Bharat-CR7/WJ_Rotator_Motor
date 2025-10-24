@@ -1,57 +1,38 @@
-# WJ Rotator Motor Driver
+i want to write github read based on this 
+# WJ_Rotator_Motor
+The following is the QCODES Framework driver files for using low temperature rotator probe to perform low temperatures physics measurements.
 
-QCoDeS framework driver for low temperature rotator probe measurements in physics experiments.
-
-## Overview
-
-This package provides a Python driver for controlling WJ Rotator Motor systems using the QCoDeS measurement framework. It enables precise angular control of rotator probes for low-temperature physics measurements.
-
-## Prerequisites
-
-- Python 3.6+
-- [QCoDeS Framework](https://microsoft.github.io/Qcodes/)
-
-## Installation
-
-1. Install QCoDeS:
+# How to setup 
+1) Install QCODES in Python from following link (https://microsoft.github.io/Qcodes/)
+2) Download all files from here and make folder workflow like below:-
 ```bash
-pip install qcodes
-QCoDeS/
-└── qcodes_contrib_drivers/
-    └── drivers/
-        └── WJ_Rotator/
-            ├── __init__.py
-            ├── WJRotator.py
-            ├── dll_api.py
-            ├── control_command_api.py
-            └── dll/
-                ├── config.ini
-                ├── WJ_API.dll
-                ├── WJ_API2.dll
-                ├── WJ_API.h
-                ├── WJ_API.cs
-                └── WJ_API2.lib
-# Import the driver
-from qcodes_contrib_drivers.drivers.WJ_Rotator.WJRotator import WJRotator
+WJ_Rotator/
+├── __init__.py 
+├── WJRotator.py 
+├── dll_api.py
+├── control_command_api.py
+└── dll/
+    ├── config.ini
+    ├── WJ_API.dll
+    ├── WJ_API2.dll
+    ├── WJ_API.h
+    ├── WJ_API.cs
+    └── WJ_API2.lib
+```
+3) Open the qcodes folder that you downloaded and go to qcodes_contrib_drivers and paste the folder that you made in step 2
 
-# Initialize the rotator
-rot = WJRotator("rotator")
+# Usage Commands
 
-# Connect to the device (default COM port 4)
-rot.connect()
-
-# Configure rotation parameters
-rot.initial_angle(80)    # Set initial angle
-rot.final_angle(100)     # Set final angle  
-rot.velocity(1)          # Set rotation velocity
-rot.set_velocity_value() # Apply velocity settings
-
-# Perform rotation
-rot.rotate()
-
-# Get current angle
-current_angle = rot.get_angle()
-
-# Close connection
-rot.close()
+#Rotator Probe
+ 
+1) from qcodes_contrib_drivers.drivers.WJRotator import WJRotator #importing the driver
+2) rot=WJRotator("rotator") #give a variable name to WJRotator class and model name ,could be any name "in brackets"
+3) rot.connect() #connecting the rotator to port and establishing the connection, default port=4 so always insert in that port otherwise change the default port in code according to your 4) convenience
+5) rot.initial_angle(80) #giving value to initial angle, initial value=0 but rotator at start can be at any angle so set accordingly
+6) rot.final_angle(100)  #giving value to final angle, initial value=360 
+7) rot.velocity(1) #giving value to velocity, initial value=1
+8) rot.set_velocity_value() #setting the velocity value
+9) rot.rotate() #for rotating the probe
+10) rot.get_angle() #for getting current angle
+11) rot.close() #run this to close com port connection first and then remove the cable
 
