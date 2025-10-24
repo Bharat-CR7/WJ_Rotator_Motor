@@ -22,16 +22,16 @@ The following is the QCODES Framework driver files for using low temperature rot
 
 #Rotator Probe
  
-from qcodes_contrib_drivers.drivers.WJRotator import WJRotator #importing the driver
-rot=WJRotator("rotator") #give a variable name to WJRotator class and model name ,could be any name "in brackets"
-rot.connect() #connecting the rotator to port and establishing the connection, default port=4 so always insert in that port otherwise change the default port in code according to your convenience
-rot.initial_angle(80) #giving value to initial angle, initial value=0 but rotator at start can be at any angle so set accordingly
-rot.final_angle(100)  #giving value to final angle, initial value=360 
-rot.velocity(1) #giving value to velocity, initial value=1
-rot.set_velocity_value() #setting the velocity value
-rot.rotate() #for rotating the probe
-rot.get_angle() #for getting current angle
-rot.close() #run this to close com port connection first and then remove the cable 
+1) from qcodes_contrib_drivers.drivers.WJRotator import WJRotator #importing the driver
+2) rot=WJRotator("rotator") #give a variable name to WJRotator class and model name ,could be any name "in brackets"
+3) rot.connect() #connecting the rotator to port and establishing the connection, default port=4 so always insert in that port otherwise change the default port in code according to your 4) convenience
+5) rot.initial_angle(80) #giving value to initial angle, initial value=0 but rotator at start can be at any angle so set accordingly
+6) rot.final_angle(100)  #giving value to final angle, initial value=360 
+7) rot.velocity(1) #giving value to velocity, initial value=1
+8) rot.set_velocity_value() #setting the velocity value
+9) rot.rotate() #for rotating the probe
+10) rot.get_angle() #for getting current angle
+11) rot.close() #run this to close com port connection first and then remove the cable 
 
 
    
