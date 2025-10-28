@@ -3,19 +3,18 @@ import time
 
 from dll_api import *
 
-# Axis number: 1-4
+# Axis number: 1
 axis_num = 1
 # Serial port, default 0
 com_port = 0
 
 # Minimum angle
-min_angle = -5
+min_angle = 0
 # Maximum angle
 max_angle = 365
 # Axis pulse count
 axis_pulses_value = 50000
 
-# 文件路径
 config_file_path = 'dll/config.ini'
 config = configparser.ConfigParser()
 
@@ -69,4 +68,5 @@ def set_velocity(velocity):
     :return:
     """
     set_axis_velocity(axis_num, velocity)
+
 
